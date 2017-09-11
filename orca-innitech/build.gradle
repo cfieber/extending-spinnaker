@@ -1,0 +1,21 @@
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'spinnaker.package'
+
+spinnaker {
+  dependenciesVersion = '0.109.2'
+}
+
+applicationName="orca"
+ospackage {
+  packageName = 'innitech-orca'
+  replaces 'spinnaker-orca'
+}
+
+dependencies {
+  compile "com.netflix.spinnaker.orca:orca-web:3.8.4"
+}
+
+springBoot {
+  mainClass = 'com.netflix.spinnaker.orca.Main'
+}

@@ -1,0 +1,25 @@
+buildscript {
+  ext {
+    springBootVersion = "1.5.4.RELEASE"
+  }
+  repositories {
+    jcenter()
+    maven { url "http://spinnaker.bintray.com/gradle" }
+    maven { url "https://plugins.gradle.org/m2/" }
+  }
+  dependencies {
+    classpath 'com.netflix.spinnaker.gradle:spinnaker-gradle-project:3.16.0'
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+  }
+}
+
+allprojects {
+  group = "com.innitech.spinnaker"
+  apply plugin: 'spinnaker.project'
+  apply plugin: 'java'
+
+  spinnaker {
+    dependenciesVersion = '0.109.2'
+  }
+}
+
